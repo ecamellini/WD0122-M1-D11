@@ -27,6 +27,8 @@
   <div id="container">
     <h1>Back to HTML, finally!</h1>
 
+    <button onclick="makeFirstSectionTitleSelected()">Select first section H2 tag</button>
+
     <div id="first-section">
       <h2 id="first-section-title">Let's see how to play with it using JS</h2>
       <p id="first-section-content" class="section-text">
@@ -61,25 +63,27 @@
 
   <script>
     // Prints something to the browser JS console, NOT the UI.
-    console.log("Hello world!")
+    // console.log("Hello world!")
 
     // This tells the browser to show a prompt with the message.
-    // It BLOCK the rendering, until the user presses OK.
-    alert("Welcome!")
+    // It BLOCKs the rendering, until the user presses OK.
+    // alert("Welcome!")
 
-    // We want to add the .selected class (already defined in our CSS)
+
+    // We want to add/remove the .selected class (already defined in our CSS)
     // to the h2 tag in the first section.
     // We want to do it using JS.
+    function makeFirstSectionTitleSelected() {
+      // 1) Selecting a node from the DOM.
+      // CONVENTION: when you store a reference to a DOM node in a variable
+      // you want to add the suffix Node to the variable name.
+      let firstSectionTitleNode = document.getElementById("first-section-title")
 
-    // 1) Selecting a node from the DOM.
-    // CONVENTION: when you store a reference to a DOM node in a variable
-    // you want to add the suffix Node to the variable name.
-    let firstSectionTitleNode = document.getElementById("first-section-title")
-
-    // 2) Manipulating the node.
-    // i.e., just modifying its properties. It's a DOM node, an OBJECT.
-    // A special object, but still an object.
-    firstSectionTitleNode.classList.add("selected")
+      // 2) Manipulating the node.
+      // i.e., just modifying its properties. It's a DOM node, an OBJECT.
+      // A special object, but still an object.
+      firstSectionTitleNode.classList.toggle("selected")
+    }
   </script>
 </body>
 
