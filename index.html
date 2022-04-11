@@ -15,6 +15,11 @@
       max-width: 720px;
       margin: 0 auto;
     }
+
+    .selected {
+      color: orange;
+      text-decoration: underline;
+    }
   </style>
 </head>
 
@@ -35,22 +40,47 @@
 
     <div id="second-section">
       <h2 id="second-section-title">Here are some lists</h2>
-      <p id="second-section-content" class="section-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      <ul>
-        <li>First item</li>
-        <li>Second item</li>
-      </ul>
-      <ol>
-        <li>First item</li>
-        <li>Second item</li>
-      </ol>
-      </p>
+      <div id="second-section-content" class="section-text">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </p>
+        <ul>
+          <li>First item</li>
+          <li>Second item</li>
+        </ul>
+        <ol>
+          <li>First item</li>
+          <li>Second item</li>
+        </ol>
+      </div>
     </div>
   </div>
   </div>
+
+  <script>
+    // Prints something to the browser JS console, NOT the UI.
+    console.log("Hello world!")
+
+    // This tells the browser to show a prompt with the message.
+    // It BLOCK the rendering, until the user presses OK.
+    alert("Welcome!")
+
+    // We want to add the .selected class (already defined in our CSS)
+    // to the h2 tag in the first section.
+    // We want to do it using JS.
+
+    // 1) Selecting a node from the DOM.
+    // CONVENTION: when you store a reference to a DOM node in a variable
+    // you want to add the suffix Node to the variable name.
+    let firstSectionTitleNode = document.getElementById("first-section-title")
+
+    // 2) Manipulating the node.
+    // i.e., just modifying its properties. It's a DOM node, an OBJECT.
+    // A special object, but still an object.
+    firstSectionTitleNode.classList.add("selected")
+  </script>
 </body>
 
 </html>
