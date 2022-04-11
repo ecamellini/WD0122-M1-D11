@@ -54,6 +54,7 @@
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
         </p>
+        <button onclick="addLiToUl()">Add element to list</button>
         <ul>
           <li>First item</li>
           <li>Second item</li>
@@ -124,6 +125,21 @@
       //   // Do something....
       // }
     }
+
+    // We want to create a function that adds a list item to the
+    // unordered list in the second section
+    function addLiToUl() {
+      // 1) Select the tag -- the ul where we want to add the li
+      let ulNode = document.querySelector("#second-section-content ul")
+
+      // 2) Manipulate it
+      // We want to add an li...
+      // We need to create it.
+      let liNode = document.createElement('li') // 2a - we create the new node
+      liNode.innerText = "New element!" // 2b - we add some text to it (we customize it)
+      ulNode.appendChild(liNode) // 2c - we manipulate the node we selecte, adding a child to it
+    }
+
   </script>
 </body>
 
