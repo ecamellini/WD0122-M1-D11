@@ -16,6 +16,11 @@
       margin: 0 auto;
     }
 
+    .red {
+      color: lightcoral;
+      font-weight: bold;
+    }
+
     .selected {
       color: orange;
       text-decoration: underline;
@@ -28,6 +33,7 @@
     <h1>Back to HTML, finally!</h1>
 
     <button onclick="makeFirstSectionTitleSelected()">Select first section H2 tag</button>
+    <button onclick="makeAllH2Red()">Make all H2 red</button>
 
     <div id="first-section">
       <h2 id="first-section-title">Let's see how to play with it using JS</h2>
@@ -59,6 +65,19 @@
       </div>
     </div>
   </div>
+
+  <div id="third-section">
+    <h2 id="third-section-title">Another title here!</h2>
+    <div id="third-section-content" class="section-text">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+    </div>
+  </div>
+
+  <h2 id="last-title">End of document.</h2>
   </div>
 
   <script>
@@ -83,6 +102,27 @@
       // i.e., just modifying its properties. It's a DOM node, an OBJECT.
       // A special object, but still an object.
       firstSectionTitleNode.classList.toggle("selected")
+    }
+
+    // We want to make all h2 titles red.
+    function makeAllH2Red() {
+      // 1) Select all h2 tags
+      let h2Nodes = document.getElementsByTagName('h2')
+      // Another way to do it would be: document.querySelectorAll('h2')
+      // If you can, it's better to use tagname, id, className, etc.
+
+      // 2) Manipulate them: add the .red class to all of them
+      for (let h2Node of h2Nodes) {
+        // Do something...
+        h2Nodes.classList.add('red')
+      }
+      // ^ syntactic sugar for the code below.
+      // Useful when you don't really care about the index,
+      // you just want to do something for each element of an array.
+      // for (let i = 0; i < h2Nodes.length ; i++) {
+      //   let h2Node = h2Nodes[i]
+      //   // Do something....
+      // }
     }
   </script>
 </body>
