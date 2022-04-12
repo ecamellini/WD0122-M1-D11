@@ -48,7 +48,7 @@
       background-color: greenyellow;
     }
 
-    #ball.highlighted {
+    .highlighted {
       box-shadow: 2px 2px 2px 2px grey;
     }
 
@@ -122,7 +122,8 @@
 
     <div id="control-ball-section">
       <h2>Control the ball</h2>
-      <input type="text" onkeydown="changeBallColor(event)" placeholder="Click and use arrows" />
+      <input type="text" onmouseover="toggleBallHint(event)" onmouseleave="toggleBallHint(event)"
+        onkeydown="changeBallColor(event)" placeholder="Click and use arrows" />
     </div>
 
 
@@ -136,7 +137,7 @@
 
     <h2 id="last-title">End of document.</h2>
   </div>
-  <div id="ball" onmouseover="toggleBallHint()" onmouseleave="toggleBallHint()">
+  <div id="ball" onmouseover="toggleBallHint(event)" onmouseleave="toggleBallHint(event)">
     <div id="ball-hint" class="hidden">You can change the ball color in the "Control the Ball" section.</div>
   </div>
   <script>
@@ -245,7 +246,7 @@
     // When we hover the ball with the mouse
     // we want some hint to appear that explains the user
     // how it works. Also, the ball must become lighter in color.
-    function toggleBallHint() {
+    function toggleBallHint(eventData) {
       // First, we toggle the div with the hint text
       // 1) Select the tag
       let ballHint = document.getElementById('ball-hint')
@@ -253,9 +254,8 @@
       // 2) Do something, manipulate the tag
       ballHint.classList.toggle("hidden")
 
-      // Second, we make the ball ligher in color
-      let ball = document.getElementById('ball')
-      ball.classList.toggle('highlighted')
+      // Second, we make the tag lighter in color (tag that caused the event)
+      eventData.target.classList.toggle('highlighted')
     }
   </script>
 </body>
