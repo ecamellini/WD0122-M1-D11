@@ -54,11 +54,12 @@
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
         </p>
-        <button onclick="addLiToUl()">Add element to list</button>
+        <button onclick="addLiToUl()">Add last element to this list</button>
         <ul>
           <li>First item</li>
           <li>Second item</li>
         </ul>
+        <button onclick="addLiToOl()">Add middle element to this list</button>
         <ol>
           <li>First item</li>
           <li>Second item</li>
@@ -139,6 +140,26 @@
       ulNode.appendChild(liNode) // 2c - we manipulate the node we selecte, adding a child to it
     }
 
+    function addLiToOl() {
+      // Adding a node - step 1 - create a new node
+      let liNode = document.createElement('li')
+
+      // Adding a node - step 2 - customizing it
+      liNode.innerText = "New item of the ordered list"
+
+      // Adding a node - step 3 - attach it somewhere...
+      // It means basically that we want to manipulate another node
+      // by adding a child to it.
+
+      // Node manipulation - step 1 - select the node
+      let olNode = document.querySelector("#second-section-content ol")
+
+      // Node manipulation - step 2 - manipulate it
+      olNode.insertBefore(liNode, olNode.lastElementChild)
+
+      // Or, if you wanted to get the last li child using a CSS selector
+      // let lastLi = document.querySelector("#second-section-content ol li:last-child")
+    }
   </script>
 </body>
 
