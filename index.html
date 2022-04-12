@@ -150,12 +150,16 @@
       // Let's get the text to put inside the li tag
       let inputText = document.getElementById('li-text-input').value
 
-      // 2) Manipulate it
-      // We want to add an li...
-      // We need to create it.
-      let liNode = document.createElement('li') // 2a - we create the new node
-      liNode.innerText = inputText // 2b - we add some text to it (we customize it)
-      ulNode.appendChild(liNode) // 2c - we manipulate the node we selecte, adding a child to it
+      if (inputText.length === 0) {
+        alert("You must insert the text of the li.")
+      } else {
+        // 2) Manipulate it
+        // We want to add an li...
+        // We need to create it.
+        let liNode = document.createElement('li') // 2a - we create the new node
+        liNode.innerText = inputText // 2b - we add some text to it (we customize it)
+        ulNode.appendChild(liNode) // 2c - we manipulate the node we selecte, adding a child to it
+      }
     }
 
     function addLiToOl() {
