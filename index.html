@@ -105,7 +105,7 @@
 
     <div id="control-ball-section">
       <h2>Control the ball</h2>
-      <input type="text" onkeydown="moveBall(event)" placeholder="Click and use arrows" />
+      <input type="text" onkeydown="changeBallColor(event)" placeholder="Click and use arrows" />
     </div>
 
 
@@ -207,7 +207,7 @@
       // let lastLi = document.querySelector("#second-section-content ol li:last-child")
     }
 
-    function moveBall(eventData) {
+    function changeBallColor(eventData) {
       let keyPressed = eventData.key
 
       // 1) Select the ball, the tag that we want to manipulate
