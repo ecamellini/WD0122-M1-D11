@@ -29,6 +29,24 @@
     input {
       margin-bottom: 10px;
     }
+
+    #ball {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      border-radius: 25px;
+      background-color: brown;
+      position: absolute;
+      top: 200px;
+    }
+
+    #ball.blueBackground {
+      background-color: aqua;
+    }
+
+    #ball.greenBackground {
+      background-color: greenyellow;
+    }
   </style>
 </head>
 
@@ -85,8 +103,14 @@
     </div>
 
 
+    <div id="control-ball-section">
+      <h2>Control the ball</h2>
+      <input type="text" onkeydown="moveBall(event)" placeholder="Click and use arrows" />
+    </div>
+
+
     <div id="inputs">
-      <h2>Some examples of inputs</h2>
+      <h2>Some more examples of inputs</h2>
       <input type="date" /><br />
       <input type="color"> Select a color</input><br />
       <input type="text" /><br />
@@ -95,7 +119,7 @@
 
     <h2 id="last-title">End of document.</h2>
   </div>
-
+  <div id="ball"></div>
   <script>
     // Prints something to the browser JS console, NOT the UI.
     // console.log("Hello world!")
@@ -182,6 +206,23 @@
       // Or, if you wanted to get the last li child using a CSS selector
       // let lastLi = document.querySelector("#second-section-content ol li:last-child")
     }
+
+    function moveBall(eventData) {
+      let keyPressed = eventData.key
+
+      // 1) Select the ball, the tag that we want to manipulate
+      let ball = document.getElementById('ball')
+
+      // If we press the arrow down, we make the ball blue
+      if (keyPressed === "ArrowDown") {
+        ball.classList.remove('greenBackground')
+        ball.classList.add('blueBackground')
+      } else if (keyPressed === "ArrowUp") {
+        ball.classList.remove('blueBackground')
+        ball.classList.add('greenBackground')
+      }
+    }
+
   </script>
 </body>
 
