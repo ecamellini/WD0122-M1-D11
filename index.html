@@ -47,6 +47,23 @@
     #ball.greenBackground {
       background-color: greenyellow;
     }
+
+    #ball.highlighted {
+      box-shadow: 2px 2px 2px 2px grey;
+    }
+
+    #ball-hint {
+      position: absolute;
+      top: 60px;
+      width: 150px;
+      font-size: 10px;
+      border: 1px solid #dcdcdc;
+      border-radius: 2px;
+    }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 
@@ -119,7 +136,9 @@
 
     <h2 id="last-title">End of document.</h2>
   </div>
-  <div id="ball"></div>
+  <div id="ball" onmouseover="toggleBallHint()" onmouseleave="toggleBallHint()">
+    <div id="ball-hint" class="hidden">You can change the ball color in the "Control the Ball" section.</div>
+  </div>
   <script>
     // Prints something to the browser JS console, NOT the UI.
     // console.log("Hello world!")
@@ -223,6 +242,21 @@
       }
     }
 
+    // When we hover the ball with the mouse
+    // we want some hint to appear that explains the user
+    // how it works. Also, the ball must become lighter in color.
+    function toggleBallHint() {
+      // First, we toggle the div with the hint text
+      // 1) Select the tag
+      let ballHint = document.getElementById('ball-hint')
+
+      // 2) Do something, manipulate the tag
+      ballHint.classList.toggle("hidden")
+
+      // Second, we make the ball ligher in color
+      let ball = document.getElementById('ball')
+      ball.classList.toggle('highlighted')
+    }
   </script>
 </body>
 
