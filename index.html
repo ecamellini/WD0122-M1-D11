@@ -25,6 +25,10 @@
       color: orange;
       text-decoration: underline;
     }
+
+    input {
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 
@@ -54,6 +58,7 @@
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
         </p>
+        <input id="li-text-input" type="text" placeholder="Enter list item text..." />
         <button onclick="addLiToUl()">Add last element to this list</button>
         <ul>
           <li>First item</li>
@@ -79,8 +84,18 @@
       </div>
     </div>
 
+
+    <div id="inputs">
+      <h2>Some examples of inputs</h2>
+      <input type="date" /><br />
+      <input type="color"> Select a color</input><br />
+      <input type="text" /><br />
+      <input type="checkbox">Check or uncheck this</input><br />
+    </div>
+
     <h2 id="last-title">End of document.</h2>
   </div>
+
   <script>
     // Prints something to the browser JS console, NOT the UI.
     // console.log("Hello world!")
@@ -132,11 +147,14 @@
       // 1) Select the tag -- the ul where we want to add the li
       let ulNode = document.querySelector("#second-section-content ul")
 
+      // Let's get the text to put inside the li tag
+      let inputText = document.getElementById('li-text-input').value
+
       // 2) Manipulate it
       // We want to add an li...
       // We need to create it.
       let liNode = document.createElement('li') // 2a - we create the new node
-      liNode.innerText = "New element!" // 2b - we add some text to it (we customize it)
+      liNode.innerText = inputText // 2b - we add some text to it (we customize it)
       ulNode.appendChild(liNode) // 2c - we manipulate the node we selecte, adding a child to it
     }
 
